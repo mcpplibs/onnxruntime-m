@@ -65,7 +65,7 @@ names. Raw config headers can be mixed with the root module, as the tests verify
 
 ## Development
 
-Use mcpp 2026.10.21.1 or newer. Tests exercise module-only inference, output shape
+Use mcpp 2026.10.24.1 or newer. Tests exercise module-only inference, output shape
 and values, and header/module coexistence. `tools/generate_model.py` regenerates
 the checked-in model, and `tools/generate_exports.py <sdk-include-directory>`
 regenerates exports from Clang's declaration AST. SDK source pins and the public

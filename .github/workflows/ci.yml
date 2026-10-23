@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  MCPP_VERSION: "2026.10.21.1"
+  MCPP_VERSION: "2026.10.24.1"
   SDK_INDEX_COMMIT: "3067e52abc0165b453ea3acac4022895ebf7d9bc"
 
 jobs:
