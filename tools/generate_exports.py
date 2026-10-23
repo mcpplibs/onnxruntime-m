@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Generate export-using declarations from Clang's public SDK declaration AST."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import subprocess
 import tempfile
+import tomllib
 
 
 def generate(ast):
@@ -68,6 +70,11 @@ if __name__ == "__main__":
     parser.add_argument("--check", action="store_true", help="fail if the committed inventory/exports differ")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
+    lock = tomllib.loads((root / "upstream/sources.lock.toml").read_text())
+    for header in lock["onnxruntime"]["supplemental-headers"].values():
+        digest = hashlib.sha256((root / header["path"]).read_bytes()).hexdigest()
+        if digest != header["sha256"]:
+            raise SystemExit(f"Supplemental upstream header differs: {header['path']}")
     config_headers = ("onnxruntime_env_config_keys.h", "onnxruntime_run_options_config_keys.h",
                       "onnxruntime_session_options_config_keys.h", "onnxruntime_ep_device_ep_metadata_keys.h")
     with tempfile.TemporaryDirectory(prefix="mwrap-ort-exports-") as temporary:
@@ -80,7 +87,7 @@ if __name__ == "__main__":
             "\nnamespace mwrap_onnxruntime_config_detail {\n" +
             "\n".join(f"#include <{header}>" for header in config_headers) + "\n}\n")
         with (directory / "ast.json").open("w") as out:
-            subprocess.run([args.clang, "-std=c++23", "-I", str(args.sdk_include),
+            subprocess.run([args.clang, "-std=c++23", "-I", str(args.sdk_include), "-I", str(root / "upstream/include"),
                             "-Xclang", "-ast-dump=json", "-fsyntax-only", str(probe)],
                            stdout=out, check=True)
         with (directory / "ast.json").open() as source:

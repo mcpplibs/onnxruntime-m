@@ -17,6 +17,12 @@ classes; the inventory counts top-level names, not every member function.
 | env/run/session config keys and EP metadata keys | Separate .config module, preserving global names and pointer types |
 | onnxruntime_float16.h | Original public Ort float16 types through the C++ API; their implementation namespace remains an implementation dependency |
 
+The Windows SDK omits the two core/providers helper headers. The wrapper carries
+verbatim copies under upstream/include from the official v1.25.1 source. Their
+bytes were checked against both the official source and Linux SDK, and their
+individual SHA256 values are pinned in sources.lock.toml. They contain only
+interface declarations/resource offsets and add no second runtime binary.
+
 The SDK's configuration keys have internal linkage. GCC rejects exporting those
 variables directly. The .config module supplies equivalent inline constant
 pointers; combining it with the same raw config headers would introduce two

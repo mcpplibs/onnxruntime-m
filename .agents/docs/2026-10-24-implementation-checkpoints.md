@@ -26,3 +26,9 @@
 - Expanded exports cover the CPU provider factory, plugin EP callbacks, Ort::Custom helpers, provider option aliases and legacy custom-op resource types.
 - Added the independent .config module for 69 enabled SDK configuration/metadata keys. GCC cannot directly export upstream internal-linkage variables; equivalent inline pointers preserve spelling/type, with explicit header-mixing limits documented in upstream/api-coverage.md.
 - Expanded Linux GCC/LLVM consumer tests passed; AST regeneration --check passed with the exact resolved LLVM compiler and SDK include path. Native CI rerun remains required on this expanded head.
+
+## Windows SDK header parity correction
+
+- Expanded native CI passed on Linux GCC/LLVM and macOS; Windows revealed that its official SDK omits core/providers/custom_op_context.h and resource.h.
+- Added exact official v1.25.1 source copies under upstream/include, verified byte-for-byte against both the official raw source and Linux SDK; individual hashes and source URLs are recorded and checked by the API auditor.
+- This preserves the helper API on Windows without inventing declarations, linking another runtime or removing those interfaces from other platforms.

@@ -16,3 +16,13 @@ sha256 = "18987ec3187b5f29ba798109750f6135060560ad4e0a52678fcc753ee8fb3091"
 [onnxruntime.windows-x86_64-msvc]
 archive = "onnxruntime-win-x64-1.25.1.zip"
 sha256 = "33f2e8a63774811f99a5fc224cac32f4eed8c27643d46c6cc685319fa8f18019"
+
+[onnxruntime.supplemental-headers.custom-op-context]
+path = "upstream/include/core/providers/custom_op_context.h"
+url = "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.25.1/include/onnxruntime/core/providers/custom_op_context.h"
+sha256 = "c1f2a96c0de1978b0f2fbf60bf1b2d50c6412d487c1f5d68ac5ffa8e01b46ee4"
+
+[onnxruntime.supplemental-headers.resource]
+path = "upstream/include/core/providers/resource.h"
+url = "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.25.1/include/onnxruntime/core/providers/resource.h"
+sha256 = "65480b7886a180f09f40999aaead120e41cb872b2efa187938d610bfe1977473"
