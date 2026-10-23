@@ -19,3 +19,10 @@
 - Native CI covers Linux GCC/LLVM, macOS arm64 and Windows MSVC ABI, including actual mcpp template rendering, build and execution.
 - tools/test_candidate.py stages the candidate source and index routing outside the checkout; local --cold-sdk additionally verifies installation into a fresh home.
 - Pending CI results, API inventory completion and release/index archive consumption remain release gates.
+
+## Expanded public SDK surface checkpoint
+
+- First native CI run 40019919136 passed all four jobs, including actual template execution.
+- Expanded exports cover the CPU provider factory, plugin EP callbacks, Ort::Custom helpers, provider option aliases and legacy custom-op resource types.
+- Added the independent .config module for 69 enabled SDK configuration/metadata keys. GCC cannot directly export upstream internal-linkage variables; equivalent inline pointers preserve spelling/type, with explicit header-mixing limits documented in upstream/api-coverage.md.
+- Expanded Linux GCC/LLVM consumer tests passed; AST regeneration --check passed with the exact resolved LLVM compiler and SDK include path. Native CI rerun remains required on this expanded head.

@@ -11,7 +11,7 @@ upstream-version = "1.25.1"
 upstream-repo = "https://github.com/microsoft/onnxruntime"
 
 [build]
-sources = ["src/onnxruntime.cppm", "src/macros.cppm"]
+sources = ["src/onnxruntime.cppm", "src/macros.cppm", "src/config.cppm"]
 include_dirs = ["port/include"]
 
 [dependencies.compat]

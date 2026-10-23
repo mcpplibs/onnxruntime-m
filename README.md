@@ -44,6 +44,25 @@ macros, including `ORT_TSTR`, remain available through
 still expands inside a qualified identifier; use the mapping and raw-macro forms
 in separate contexts.
 
+The root also exposes the CPU provider factory, plugin EP API declarations,
+`Ort::Custom` lightweight custom-op types and `onnxruntime::ProviderOptions`.
+API availability does not install an execution provider that is absent from the CPU SDK.
+
+Configuration keys follow the SDK's separate-header grouping:
+
+```cpp
+import mcpplibs.mwrap.onnxruntime;
+import mcpplibs.mwrap.onnxruntime.config;
+Ort::SessionOptions options;
+options.AddConfigEntry(kOrtSessionOptionsConfigDisablePrepacking, "1");
+```
+
+The config module preserves global key names and pointer types. Upstream gives
+these header variables internal linkage, which GCC cannot export directly, so
+the module supplies equivalent inline constants. Use either this module or the
+raw config headers in a translation unit; combining both creates duplicate key
+names. Raw config headers can be mixed with the root module, as the tests verify.
+
 ## Development
 
 Use mcpp 2026.10.21.1 or newer. Tests exercise module-only inference, output shape

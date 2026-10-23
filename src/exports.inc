@@ -1,5 +1,7 @@
 // Generated from the official 1.25.1 public API AST.
 export {
+using ::CreateEpApiFactoriesFn;
+using ::CustomOpContext;
 using ::ExecutionMode;
 using ::GraphOptimizationLevel;
 using ::INPUT_OUTPUT_OPTIONAL;
@@ -246,6 +248,7 @@ using ::OrtScanKernelHelper;
 using ::OrtSequenceTypeInfo;
 using ::OrtSession;
 using ::OrtSessionOptions;
+using ::OrtSessionOptionsAppendExecutionProvider_CPU;
 using ::OrtSessionOptionsAppendExecutionProvider_CUDA;
 using ::OrtSessionOptionsAppendExecutionProvider_Dnnl;
 using ::OrtSessionOptionsAppendExecutionProvider_MIGraphX;
@@ -276,7 +279,14 @@ using ::OrtTypeInfo;
 using ::OrtValue;
 using ::OrtValueInfo;
 using ::OrtWriteBufferFunc;
+using ::ReleaseEpApiFactoryFn;
+using ::ResourceOffset;
 using ::RunAsyncCallbackFn;
+using ::cpu_resource_offset;
+using ::cuda_resource_offset;
+using ::custom_ep_resource_offset;
+using ::dml_resource_offset;
+using ::migraphx_resource_offset;
 }
 export namespace Ort {
 using ::Ort::AllocatedStringPtr;
@@ -386,4 +396,25 @@ using ::Ort::UnownedValue;
 using ::Ort::Value;
 using ::Ort::ValueInfo;
 using ::Ort::ValueInfoConsumerProducerInfo;
+}
+export namespace Ort::Custom {
+using ::Ort::Custom::ArgBase;
+using ::Ort::Custom::ArgPtr;
+using ::Ort::Custom::ArgPtrs;
+using ::Ort::Custom::CreateLiteCustomOp;
+using ::Ort::Custom::OrtLiteCustomFunc;
+using ::Ort::Custom::OrtLiteCustomOp;
+using ::Ort::Custom::OrtLiteCustomStruct;
+using ::Ort::Custom::Span;
+using ::Ort::Custom::Tensor;
+using ::Ort::Custom::TensorArray;
+using ::Ort::Custom::TensorBase;
+using ::Ort::Custom::TensorPtr;
+using ::Ort::Custom::TensorPtrs;
+using ::Ort::Custom::Variadic;
+}
+export namespace onnxruntime {
+using ::onnxruntime::ProviderOptions;
+using ::onnxruntime::ProviderOptionsMap;
+using ::onnxruntime::ProviderOptionsVector;
 }
