@@ -1,0 +1,18 @@
+[onnxruntime]
+version = "1.25.1"
+tag = "v1.25.1"
+repo = "https://github.com/microsoft/onnxruntime"
+provider = "compat.onnxruntime@1.25.1"
+headers = "Official CPU SDK, same version as the linked runtime"
+
+[onnxruntime.linux-x86_64]
+archive = "onnxruntime-linux-x64-1.25.1.tgz"
+sha256 = "eb566a49cfc49ef0642f809b69340b5bb656c7c4905ba873526d226f2c005816"
+
+[onnxruntime.macos-arm64]
+archive = "onnxruntime-osx-arm64-1.25.1.tgz"
+sha256 = "18987ec3187b5f29ba798109750f6135060560ad4e0a52678fcc753ee8fb3091"
+
+[onnxruntime.windows-x86_64-msvc]
+archive = "onnxruntime-win-x64-1.25.1.zip"
+sha256 = "33f2e8a63774811f99a5fc224cac32f4eed8c27643d46c6cc685319fa8f18019"

@@ -1,0 +1,4 @@
+[template]
+description = "Run an embedded ONNX identity model with the upstream Ort C++ API"
+default = true
+post_message = "Run `mcpp run` to execute the embedded model on the CPU."

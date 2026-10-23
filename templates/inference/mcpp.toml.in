@@ -1,0 +1,10 @@
+[package]
+name = "{{project.name}}"
+version = "0.1.0"
+description = "ONNX Runtime CPU inference with C++ modules"
+
+[dependencies]
+"{{self.name}}" = "{{self.version}}"
+
+[target.x86_64-linux-gnu]
+cxx_runtime = "toolchain-coupled"

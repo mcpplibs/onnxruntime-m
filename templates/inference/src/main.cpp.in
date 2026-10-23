@@ -1,0 +1,21 @@
+#include "model.hpp"
+import std;
+import mcpplibs.mwrap.onnxruntime;
+
+int main() {
+    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "{{project.name}}");
+    Ort::SessionOptions options;
+    options.SetIntraOpNumThreads(1);
+    Ort::Session session(env, identity_model, sizeof(identity_model), options);
+    std::array<float, 3> input{1.0f, 2.0f, 3.0f};
+    std::array<std::int64_t, 1> shape{3};
+    auto memory = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+    auto tensor = Ort::Value::CreateTensor<float>(memory, input.data(), input.size(), shape.data(), shape.size());
+    const char* inputs[]{"x"};
+    const char* outputs[]{"y"};
+    auto result = session.Run(Ort::RunOptions{nullptr}, inputs, &tensor, 1, outputs, 1);
+    const auto* values = result.at(0).GetTensorData<float>();
+    for (std::size_t i = 0; i < input.size(); ++i)
+        if (values[i] != input[i]) return 1;
+    std::println("ONNX Runtime {}: Identity inference passed", Ort::GetVersionString());
+}
