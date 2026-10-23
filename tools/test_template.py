@@ -25,7 +25,8 @@ if __name__ == "__main__":
         temporary = Path(directory)
         home = temporary / "home"
         package = home / "registry/data/xpkgs/mcpplibs.mwrap-x-onnxruntime/1.25.1/onnxruntime-1.25.1"
-        shutil.copytree(root, package, ignore=shutil.ignore_patterns(".git", "target", ".mcpp", "__pycache__"))
+        shutil.copytree(root, package, ignore=shutil.ignore_patterns(
+            ".git", "target", ".mcpp", ".xlings", "__pycache__", "mcpp.lock", "compile_commands.json", "candidate-index", "mcpp-2026.*"))
         index = home / "indices/mcpplibs/pkgs/mwrap"
         index.mkdir(parents=True)
         (index / "mcpplibs.mwrap.onnxruntime.lua").write_text('''package = {
