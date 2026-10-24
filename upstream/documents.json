@@ -1,0 +1,15 @@
+{
+  "upstream": "https://github.com/microsoft/onnxruntime/tree/v1.25.1",
+  "documents": [
+    {
+      "path": "upstream/onnxruntime/README.md",
+      "source": "https://github.com/microsoft/onnxruntime/tree/v1.25.1/README.md",
+      "sha256": "87f0387d38c0a5e3e448ab3ae3debc38024663ed8e4b2f55c625958764b01e4f"
+    },
+    {
+      "path": "upstream/onnxruntime/LICENSE",
+      "source": "https://github.com/microsoft/onnxruntime/tree/v1.25.1/LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    }
+  ]
+}
