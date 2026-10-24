@@ -4,7 +4,7 @@
 
 [English](README.md) · **简体中文**
 
-使用 mcpp **2026.10.24.1**。新 mwrap 身份在索引发布后可直接安装。
+上游仓库：[microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
 
 ## 快速开始
 
