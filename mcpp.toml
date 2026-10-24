@@ -1,0 +1,27 @@
+# Module wrapper; upstream API preserved. Policy: mcpp-index/docs/mwrap.md.
+[package]
+namespace = "mcpplibs.mwrap"
+name = "onnxruntime"
+version = "1.25.1"
+description = "ONNX Runtime 1.25.1 C/C++ APIs as C++ modules, with upstream names preserved"
+license = "MIT"
+repo = "https://github.com/mcpplibs/onnxruntime-m"
+
+[package.metadata.mwrap]
+upstream-version = "1.25.1"
+upstream-repo = "https://github.com/microsoft/onnxruntime"
+
+[build]
+sources = ["src/onnxruntime.cppm", "src/macros.cppm", "src/config.cppm"]
+include_dirs = ["port/include", "upstream/include"]
+
+[dependencies.compat]
+onnxruntime = "1.25.1"
+
+[targets.onnxruntime]
+kind = "lib"
+
+# The Linux SDK is a shared library that itself needs libstdc++. A GCC
+# executable must share that runtime rather than embed a second copy.
+[target.x86_64-linux-gnu]
+cxx_runtime = "toolchain-coupled"

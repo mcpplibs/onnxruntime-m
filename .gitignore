@@ -1,0 +1,7 @@
+target/
+.mcpp/
+.xlings/
+mcpp.lock
+compile_commands.json
+__pycache__/
+*.pyc
