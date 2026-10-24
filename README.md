@@ -2,9 +2,11 @@
 
 > ONNX Runtime 1.25.1 C/C++ APIs as C++23 modules; Ort:: names are preserved.
 
-**English** · [简体中文](README.zh.md)
+**English** · [简体中文](README.zh.md) · Upstream: [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime) · [Releases](https://github.com/mcpplibs/onnxruntime-m/releases) · [mcpp](https://github.com/mcpp-community/mcpp) · [Index](https://github.com/mcpplibs/mcpp-index)
 
-Upstream: [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
+[![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml)
 
 ## Quick start
 

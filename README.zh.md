@@ -2,9 +2,11 @@
 
 > ONNX Runtime 1.25.1 C/C++ API 的 C++23 模块封装，保留 Ort:: 名称。
 
-[English](README.md) · **简体中文**
+[English](README.md) · **简体中文** · 上游：[microsoft/onnxruntime](https://github.com/microsoft/onnxruntime) · [Releases](https://github.com/mcpplibs/onnxruntime-m/releases) · [mcpp](https://github.com/mcpp-community/mcpp) · [Index](https://github.com/mcpplibs/mcpp-index)
 
-上游仓库：[microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
+[![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml)
 
 ## 快速开始
 
