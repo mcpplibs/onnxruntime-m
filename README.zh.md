@@ -5,7 +5,8 @@
 [English](README.md) · **简体中文** · [Upstream](https://github.com/microsoft/onnxruntime) · [Releases](https://github.com/mcpplibs/onnxruntime-m/releases) · [mcpp](https://github.com/mcpp-community/mcpp) · [Index](https://github.com/mcpplibs/mcpp-index)
 
 [![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![mcpp-community](https://img.shields.io/badge/mcpp--community-mwrap-blue)](https://github.com/mcpp-community)
 [![CI](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mcpplibs/onnxruntime-m/actions/workflows/ci.yml)
 
 ## 模块
@@ -19,14 +20,14 @@
 ## 快速开始
 
 ```sh
-mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1
+mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1.1
 cd inference
 mcpp run
 ```
 
 ```toml
 [dependencies]
-mcpplibs.mwrap.onnxruntime = "1.25.1"
+mcpplibs.mwrap.onnxruntime = "1.25.1.1"
 ```
 
 ## 已有项目
@@ -46,5 +47,7 @@ GPU、musl、MinGW 需要独立 SDK；模板实际执行内嵌 Identity 模型�
 
 ## 文档
 
-[使用与混用限制](docs/usage.md) · [SDK 来源](upstream) · [测试](tests) · [MIT](LICENSE)
+[使用与混用限制](docs/usage.md) · [SDK 来源](upstream) · [测试](tests) · [Apache-2.0](LICENSE)
 SDK 保留 MIT 许可证与 ThirdPartyNotices.txt。
+
+封装：Apache-2.0，mcpp-community。[上游原始 README 与许可证](upstream/onnxruntime/)，上游许可保持原样。
