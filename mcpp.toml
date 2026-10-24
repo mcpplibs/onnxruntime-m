@@ -1,3 +1,4 @@
+# Module wrapper; upstream API preserved. Policy: mcpp-index/docs/mwrap.md.
 [package]
 namespace = "mcpplibs.mwrap"
 name = "onnxruntime"
