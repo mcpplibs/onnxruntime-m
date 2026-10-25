@@ -2,14 +2,14 @@
 [package]
 namespace = "mcpplibs.mwrap"
 name = "onnxruntime"
-version = "1.25.1.1"
+version = "1.25.1"
 description = "ONNX Runtime 1.25.1 C/C++ APIs as C++ modules, with upstream names preserved"
 license = "Apache-2.0"
 authors = ["mcpp-community"]
 repo = "https://github.com/mcpplibs/onnxruntime-m"
 
 [package.metadata.mwrap]
-wrapper-revision = 1
+wrapper-revision = 0
 upstream-version = "1.25.1"
 upstream-repo = "https://github.com/microsoft/onnxruntime"
 
@@ -30,11 +30,11 @@ cxx_runtime = "toolchain-coupled"
 
 [[runtime.deploy]]
 from = "LICENSE"
-to = "licenses/onnxruntime"
+to = "licenses/onnxruntime/wrapper"
 
 [[runtime.deploy]]
 from = "NOTICE"
-to = "licenses/onnxruntime"
+to = "licenses/onnxruntime/wrapper"
 
 [[runtime.deploy]]
 from = "upstream/onnxruntime/README.md"

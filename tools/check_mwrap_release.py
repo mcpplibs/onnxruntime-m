@@ -31,6 +31,12 @@ def main():
     assert any(Path(d['path']).name.startswith(('LICENSE', 'COPYING')) for d in documents)
     deployed = {entry['from'] for entry in tomllib.loads((root / 'mcpp.toml').read_text(encoding='utf-8')).get('runtime', {}).get('deploy', [])}
     assert {'LICENSE', 'NOTICE'} <= deployed
+    destinations = {entry['from']: entry['to'] for entry in
+                    tomllib.loads((root / 'mcpp.toml').read_text(encoding='utf-8'))['runtime']['deploy']}
+    # The SDK provider owns licenses/onnxruntime/LICENSE (MIT).
+    # Keep wrapper Apache-2.0 and NOTICE in their own directory.
+    assert destinations['LICENSE'] == destinations['NOTICE'] == 'licenses/onnxruntime/wrapper'
+
     for document in documents:
         path = Path(document['path'])
         assert not path.is_absolute() and '..' not in path.parts and path.parts[0] == 'upstream'

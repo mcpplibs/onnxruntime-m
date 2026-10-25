@@ -20,14 +20,14 @@
 ## Quick start
 
 ```sh
-mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1.1
+mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1
 cd inference
 mcpp run
 ```
 
 ```toml
 [dependencies]
-mcpplibs.mwrap.onnxruntime = "1.25.1.1"
+mcpplibs.mwrap.onnxruntime = "1.25.1"
 ```
 
 ## Existing projects

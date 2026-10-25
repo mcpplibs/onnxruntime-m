@@ -8,7 +8,7 @@ the C API retain their original namespaces and types.
 
 ```toml
 [dependencies."mcpplibs.mwrap"]
-onnxruntime = "1.25.1.1"
+onnxruntime = "1.25.1"
 
 [target.x86_64-linux-gnu]
 cxx_runtime = "toolchain-coupled"
@@ -31,7 +31,7 @@ SDK builds and are not supplied by this version.
 ## Quickstart template
 
 ```sh
-mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1.1
+mcpp new inference --template mcpplibs.mwrap.onnxruntime@1.25.1
 cd inference
 mcpp run
 ```
