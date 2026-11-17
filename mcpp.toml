@@ -2,7 +2,7 @@
 [package]
 namespace = "mcpplibs.mwrap"
 name = "onnxruntime"
-version = "1.25.1"
+version = "1.25.1.1"
 description = "ONNX Runtime 1.25.1 C/C++ APIs as C++ modules, with upstream names preserved"
 license = "Apache-2.0"
 authors = ["mcpp-community"]

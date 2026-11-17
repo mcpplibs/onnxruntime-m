@@ -44,12 +44,19 @@ mcpp="mcpp.toml"}
         project = temporary / "inference-app"
         manifest = project / "mcpp.toml"
         parsed = tomllib.loads(manifest.read_text())
-        dependency = parsed["dependencies"]["mcpplibs.mwrap.onnxruntime"]
+        # The key is the selector, unquoted: TOML reads it as nested tables.
+        def selected(table, selector):
+            for part in selector.split("."):
+                table = table[part]
+            return table
+        dependency = selected(parsed["dependencies"], "mcpplibs.mwrap.onnxruntime")
         assert dependency == version or dependency.get("version") == version, dependency
         # Keep the rendered dependency's identity/version check above. For an
         # unpublished candidate, build that exact staged source via a local edge.
-        text = manifest.read_text().replace(f'"mcpplibs.mwrap.onnxruntime" = "{version}"',
-            '"mcpplibs.mwrap.onnxruntime" = { path = "' + package.as_posix() + '" }')
+        written = f'mcpplibs.mwrap.onnxruntime = "{version}"'
+        assert written in manifest.read_text(), "the template did not write the key unquoted"
+        text = manifest.read_text().replace(written,
+            'mcpplibs.mwrap.onnxruntime = { path = "' + package.as_posix() + '" }')
         if args.index:
             text += '\n[indices]\ncompat = { path = "' + args.index.resolve().as_posix() + '" }\n'
         manifest.write_text(text)
